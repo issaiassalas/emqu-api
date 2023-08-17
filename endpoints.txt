@@ -1,0 +1,175 @@
+/api/auth/register POST
+request
+{
+	"email": "demo@mail.com",
+	"password": "123456"
+}
+response
+{
+	"auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTI0ODYxMDcsImlhdCI6MTY5MjIyNjkwNywic3ViIjoxfQ.pYiM-DRO2Ty4wSQpSx0vvmr0bFZPQiqfCQv23quwzAw",
+	"message": "Successfully registered.",
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/auth/login POST
+request
+{
+	"email": "demo@mail.com",
+	"password": "123456"
+}
+response
+{
+	"auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTI0NjAzMzgsImlhdCI6MTY5MjIwMTEzOCwic3ViIjoxfQ.yMWp8lUG7XbPefvfpT-FStu4M2anFBHnehePnNVq7dc",
+	"message": "Successfully logged in.",
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/auth/me GET
+response
+{
+	"data": {
+		"admin": false,
+		"email": "demo@mail.com",
+		"registered_on": "Wed, 16 Aug 2023 19:01:47 GMT",
+		"user_id": 1
+	},
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------`
+
+/api/device POST
+request
+{
+	"name": "otro",
+	"ip_address": "0.0.0.0"
+}
+response
+{
+	"data": {
+		"id": 2,
+		"ip_address": "0.0.0.0",
+		"name": "otro"
+	},
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/device GET
+response
+{
+	"data": [
+		{
+			"created_at": "Thu, 17 Aug 2023 00:45:12 GMT",
+			"id": 1,
+			"ip_address": "0.0.0.0",
+			"last_request_at": null,
+			"name": "otro"
+		}
+	],
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/device/<id> GET
+response
+{
+	"data": {
+		"created_at": "Thu, 17 Aug 2023 00:45:12 GMT",
+		"id": 1,
+		"ip_address": "0.0.0.0",
+		"last_request_at": null,
+		"name": "otro"
+	},
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/device/<id> PUT
+request
+{
+	"name":"youtubess.com"
+}
+response
+{
+	"data": {
+		"created_at": "Wed, 16 Aug 2023 18:17:31 GMT",
+		"id": 1,
+		"ip_address": "0.0.0.0",
+		"name": "youtubess.com"
+	},
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/device/<id> DELETE
+response
+{
+	"data": {
+		"id": 2
+	},
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/ping/device/<id> POST
+request
+{
+	
+}
+response
+{
+	"data": {
+		"id": 9,
+		"status": true,
+		"time": 53
+	},
+	"status": "success"
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/device/<id>/stats GET
+response
+{
+	"failed_count": 0,
+	"first_time_requested": "Thu, 17 Aug 2023 00:50:00 GMT",
+	"last_time_requested": "Thu, 17 Aug 2023 00:50:16 GMT",
+	"max_time_waited": 78.0,
+	"mean_time": 58.0,
+	"min_time_waited": 51.0,
+	"request_count": 4,
+	"success_count": 4
+}
+
+------------------------------------------------------------------------------------------------------------
+
+/api/user/stats GET
+response
+{
+	"count_of_devices": 2,
+	"first_requested_device": {
+		"created_at": "Thu, 17 Aug 2023 00:49:48 GMT",
+		"id": 2,
+		"ip_address": "8.8.8.8",
+		"last_request_at": "Thu, 17 Aug 2023 00:50:16 GMT",
+		"name": "google"
+	},
+	"last_requested_device": {
+		"created_at": "Thu, 17 Aug 2023 00:45:12 GMT",
+		"id": 1,
+		"ip_address": "0.0.0.0",
+		"last_request_at": "Thu, 17 Aug 2023 00:49:36 GMT",
+		"name": "otro"
+	},
+	"unused_devices_count": 0
+}
